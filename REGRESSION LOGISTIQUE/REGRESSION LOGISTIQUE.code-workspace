@@ -1,0 +1,27 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../Pandas"
+		},
+		{
+			"path": "../ScikitLearn"
+		},
+		{
+			"path": "../Python_world"
+		},
+		{
+			"path": "../Seaborn"
+		},
+		{
+			"path": "../REGRESSION_LINEAIRE"
+		}
+	],
+	"settings": {
+		"cSpell.words": [
+			"countplot"
+		]
+	}
+}
