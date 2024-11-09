@@ -33,8 +33,6 @@ tranche = ['jeune','adulte', 'vieux']
 dataset['tranche_d\'age']= pd.cut(dataset['age'], bins=intervalle, labels=tranche)
 dataset['income'] = dataset['income'].str.replace(' ', '')
 
-#Data Preprocessing
-
 #Stripping all the spaces of the columns using str.strip()
 edu_uniq_vals = dataset['education'].unique()
 dataset['education'] = dataset['education'].str.strip()
@@ -42,8 +40,7 @@ dataset['workclass']= dataset['workclass'].str.strip()
 print(dataset['workclass'].unique(),"\n")
 
 #Data visualization
-"""
-#Income visualization
+
 #pie
 f,ax=plt.subplots(1,2,figsize=(5,5))
 ax[0] = dataset['income'].value_counts().plot.pie(explode=[0,0],autopct='%1.1f%%',ax=ax[0],shadow=True)
@@ -68,11 +65,11 @@ axe = sns.countplot(data= dataset, x='income', hue='education', palette='Set1')
 axe.set_title("Frequency distribution of income variable about education")
 plt.show()
 
-for col in numericals_col:
+for col in numericals_col: # type: ignore
     sns.histplot(x=dataset[col])
     plt.title("Histogramme de  {}".format(col))
     plt.show()
-"""
+
 #Changing income values
 low_income = (1000 ,50000)  # Plage pour '<=50K'
 high_income=(55000,250000)  # Plage pour '>50K'
