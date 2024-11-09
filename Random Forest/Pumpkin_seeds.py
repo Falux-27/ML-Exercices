@@ -38,7 +38,6 @@ val_null = dataset.isnull().sum()
 print("\n\nValeurs manquantes:\n",val_null)
 
 #Visualization
-    
     #Class distribution
 sns.barplot(x=percent_target.index, y=percent_target.values, hue=uniq_val_class)
 plt.title("Classe Distribution")
