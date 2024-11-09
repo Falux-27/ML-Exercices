@@ -45,8 +45,6 @@ plt.title("Classe Distribution")
 plt.ylabel('Values')
 plt.xlabel('Class')
 plt.legend(dataset["Class"].unique())
-plt.draw()
-plt.savefig('/Users/apple/Desktop/ML_Algorithms/images/graph1.png')
 plt.show()
 
     #Class and Area distribution
@@ -55,7 +53,6 @@ sns.barplot(data= dataset , x="Class", y='Area',hue="Class")
 plt.title("Class and Area Distribution")
 plt.ylabel('Area')
 plt.xlabel('Class')
-plt.savefig('/Users/apple/Desktop/ML_Algorithms/images/graph2.png')
 plt.show()
 
     # Area and Perimeter Distribution
@@ -69,7 +66,6 @@ plt.show()
 sns.set_style('darkgrid')
 sns.boxplot(data=dataset,x=dataset['Perimeter'])
 plt.title("Perimeter Distribution")
-plt.savefig('/Users/apple/Desktop/ML_Algorithms/images/graph3.png')
 plt.show()
 
 #Encoding
@@ -115,7 +111,6 @@ sns.heatmap(matrix, annot=True, fmt='d')
 plt.title('Random Forest Confusion Matrix')
 plt.xlabel('Predicted')
 plt.ylabel('Actual')
-plt.savefig('/Users/apple/Desktop/ML_Algorithms/images/graph4.png')
 plt.show()
 
     #Voting Classifier
@@ -169,7 +164,6 @@ sns.heatmap(matrix, annot=True, fmt='d')
 plt.title('Voting Classifier Confusion Matrix')
 plt.xlabel('Predicted')
 plt.ylabel('Actual')
-plt.savefig('/Users/apple/Desktop/ML_Algorithms/images/graph5.png')
 plt.show()
 
 #Comparing the performance of models
@@ -185,7 +179,6 @@ for name, algorithm in models:
      plt.title('Confusion Matrix for '+name)
      plt.xlabel('Predicted')
      plt.ylabel('Actual')
-     plt.savefig('/Users/apple/Desktop/ML_Algorithms/images/graph6.png')
      plt.show()
      
 
