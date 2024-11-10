@@ -9,7 +9,8 @@ from sklearn.metrics import confusion_matrix,classification_report, accuracy_sco
 from sklearn.ensemble import VotingClassifier
 from sklearn.svm import SVC
 from sklearn.linear_model import LogisticRegression
-from sklearn.tree import DecisionTreeClassifier,plot_tree
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.tree import plot_tree
 from sklearn.model_selection import GridSearchCV,cross_val_score
 from sklearn.impute import KNNImputer,SimpleImputer
 from sklearn.ensemble import RandomForestClassifier, BaggingClassifier,VotingClassifier
@@ -113,7 +114,14 @@ plt.xlabel('Predicted')
 plt.ylabel('Actual')
 plt.show()
 
-    #Voting Classifier
+#Visualization of trees
+for i, estimator in enumerate(final_model.estimators_[:5]):
+    plt.figure(figsize=(10, 5))
+    plot_tree(estimator, feature_names=dataset.columns[:-1], filled=True)
+    plt.title(f"Decision Tree {i+1}")
+    plt.show()
+    
+#Voting Classifier
 
 #Checking ouliers
 threshold = 3
@@ -121,8 +129,7 @@ outlier_index = features[(stats.zscore(features) > threshold).any(axis=1)].index
 print("Data before removing outlier:", features.shape,"\n")
 features = features.drop(outlier_index)
 print("Data after removing outlier:", features.shape)
-target = np.delete(target, outlier_index)
- #Supprimer les mêmes ligne sur le target
+target = np.delete(target, outlier_index)  #Supprimer les mêmes ligne sur le target
 
 #Scaling
 scaler = StandardScaler()
