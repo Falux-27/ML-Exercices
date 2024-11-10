@@ -112,6 +112,12 @@ plt.xlabel('Predicted')
 plt.ylabel('Actual')
 plt.show()
 
+#Visualization of trees
+for i, estimator in enumerate(final_model.estimators_[:5]):
+    plt.figure(figsize=(10, 5))
+    plot_tree(estimator, feature_names=dataset.columns[:-1], filled=True)
+    plt.title(f"Decision Tree {i+1}")
+    plt.show()
     #Voting Classifier
 
 #Checking ouliers
