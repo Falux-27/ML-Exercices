@@ -13,7 +13,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.tree import plot_tree
 from sklearn.model_selection import GridSearchCV,cross_val_score
 from sklearn.impute import KNNImputer,SimpleImputer
-from sklearn.ensemble import RandomForestClassifier, BaggingClassifier,VotingClassifier
+from sklearn.ensemble import RandomForestClassifier, BaggingClassifier
 
 #Load dataset
 dataset = pd.read_excel("/Users/apple/Desktop/ML_Algorithms/Dataset/Pumpkin_seeds.xlsx")
@@ -42,7 +42,7 @@ print("\n\nValeurs manquantes:\n",val_null)
     
     #Class distribution
 sns.barplot(x=percent_target.index, y=percent_target.values, hue=uniq_val_class)
-plt.title("Classe Distribution")
+plt.title("Class Distribution")
 plt.ylabel('Values')
 plt.xlabel('Class')
 plt.legend(dataset["Class"].unique())
@@ -125,10 +125,10 @@ for i, estimator in enumerate(final_model.estimators_[:5]):
 
 #Checking ouliers
 threshold = 3
-outlier_index = features[(stats.zscore(features) > threshold).any(axis=1)].index #lignes contenant un outlier dans les colonnes de features
-print("Data before removing outlier:", features.shape,"\n")
+outlier_index = features[(stats.zscore(features) > threshold).any(axis=1)].index #lignes contenant un outlier dans les colonnes features
+print("Data before removing outliers:", features.shape,"\n")
 features = features.drop(outlier_index)
-print("Data after removing outlier:", features.shape)
+print("Data after removing outliers:", features.shape)
 target = np.delete(target, outlier_index)  #Supprimer les mêmes ligne sur le target
 
 #Scaling
@@ -187,6 +187,7 @@ for name, algorithm in models:
      plt.xlabel('Predicted')
      plt.ylabel('Actual')
      plt.show()
+     
      
 
 
